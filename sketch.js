@@ -48,7 +48,7 @@ async function getBackgroundImg(){
 
     //load the image in backgroundImg variable here
 
-        var response = await fetch('http://worldtimeapi.org/api/timezone/America/Chicago');
+        var response = await fetch('http://worldtimeapi.org/api/timezone/Europe/Rome');
         var responseJSON = await response.json();
         console.log(responseJSON);
         console.log(responseJSON.datetime);
