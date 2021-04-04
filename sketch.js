@@ -10,6 +10,7 @@ var bg ;
 
 function preload() {
     // create getBackgroundImg( ) here
+    getBackgroundImg();
 }
 
 function setup(){
@@ -22,7 +23,9 @@ function setup(){
 function draw(){
 
     // add condition to check if any background image is there to add
-
+    if (backgroundImg){
+    background(backgroundImg);
+    }
 
     Engine.update(engine);
 
@@ -44,5 +47,65 @@ async function getBackgroundImg(){
 
 
     //load the image in backgroundImg variable here
+
+        var response = await fetch('http://worldtimeapi.org/api/timezone/America/Chicago');
+        var responseJSON = await response.json();
+        console.log(responseJSON);
+        console.log(responseJSON.datetime);
+        var datetime = responseJSON.datetime;
+        var hour = datetime.slice(11,13);
+    
+        if (hour = 08){
+            bg = 'sunrise1.png';
+        }
+
+        if (hour = 09){
+            bg = 'sunrise2.png';
+        }
+
+        if (hour = 10){
+            bg = 'sunrise3.png';
+        }
+
+        if (hour = 11){
+            bg = 'sunrise4.png';
+        }
+
+        if (hour = 12){
+            bg = 'sunrise5.png';
+        }
+
+        if (hour = 13){
+            bg = 'sunrise6.png';
+        }
+
+        if (hour = 19){
+            bg = 'sunset7.png';
+        }
+
+        if (hour = 20){
+            bg = 'sunset8.png';
+        }
+
+        if (hour = 21){
+            bg = 'sunset9.png';
+        }
+
+        if (hour = 22){
+            bg = 'sunset10.png';
+        }
+
+        if (hour = 23){
+            bg = 'sunset11.png';
+        }
+
+        if (hour = 24){
+            bg = 'sunset12.png';
+        }
+        
+    
+        backgroundImg = loadImage(bg);
+        console.log(backgroundImg);
+     
 
 }
